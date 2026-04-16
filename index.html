@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dune Ventures — Holding Company · Software Incubator · AI Advisory</title>
+  <meta name="description" content="Dune Ventures LLC is a Nevada-based holding company, software incubator, and AI advisory. We operate a portfolio of software ventures, incubate new ones, and advise leaders on integrating intelligence systems into existing infrastructure." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Dune Ventures — Holding Company · Software Incubator · AI Advisory" />
+  <meta property="og:description" content="A Nevada-based holding company, software incubator, and AI advisory." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sand: #F5EFE6;
+      --cream: #FAF6EF;
+      --terracotta:#B8543A;
+      --charcoal: #1F1B18;
+      --slate: #4A433D;
+      --gold: #C69749;
+      --border: #E8DFD2;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      font-size: 17px;
+    }
+    .serif { font-family: 'Instrument Serif', Georgia, serif; letter-spacing: -0.005em; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    a { color: inherit; text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.75; }
+
+    /* ============ NAVIGATION ============ */
+    nav {
+      padding: 28px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(250, 246, 239, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Instrument Serif', serif;
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      color: var(--charcoal);
+    }
+    .wordmark-mark {
+      width: 30px; height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate);
+      font-weight: 500;
+    }
+    @media (max-width: 720px) {
+      .nav-meta { display: none; }
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      padding: 112px 0 160px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-dune-illustration {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      width: 100%; height: 240px;
+      pointer-events: none;
+      opacity: 0.35;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 400;
+      line-height: 1.04;
+      letter-spacing: -0.015em;
+      color: var(--charcoal);
+      max-width: 1000px;
+      margin-bottom: 36px;
+    }
+    .hero h1 em { font-style: italic; color: var(--terracotta); font-weight: 400; }
+    .hero-lead {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--slate);
+      max-width: 680px;
+      font-weight: 400;
+    }
+
+    /* ============ SECTION BASICS ============ */
+    section { padding: 120px 0; }
+    .section-eyebrow {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(34px, 4.2vw, 56px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.012em;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+    .section-lead {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--slate);
+      max-width: 680px;
+    }
+
+    /* ============ PILLARS ============ */
+    .pillars {
+      background: var(--sand);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pillars-header { max-width: 780px; margin-bottom: 80px; }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    @media (max-width: 880px) {
+      .pillars-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .pillar-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 44px 36px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(31, 27, 24, 0.08);
+    }
+    .pillar-number {
+      font-family: 'Instrument Serif', serif;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+    .pillar-icon { margin-bottom: 28px; color: var(--terracotta); }
+    .pillar-card h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+    }
+    .pillar-card p { font-size: 16px; line-height: 1.65; color: var(--slate); }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 56px 0 36px;
+    }
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .footer-brand .wordmark { color: var(--cream); font-size: 22px; }
+    .footer-meta {
+      font-size: 13px;
+      color: #9B9289;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #2e2823;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #7E7670;
+    }
+
+    /* ============ REVEAL ANIMATION ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="nav">
+    <div class="container">
+      <a href="#top" class="wordmark">
+        <span class="wordmark-mark">
+          <svg width="30" height="30" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 22 Q 8 14, 14 18 T 26 14" stroke="#B8543A" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M2 26 Q 9 20, 15 22 T 26 20" stroke="#1F1B18" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </span>
+        <span>Dune Ventures</span>
+      </a>
+      <div class="nav-meta">Las Vegas · Nevada</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container">
+      <span class="eyebrow reveal">Est. 2026 · Nevada</span>
+      <h1 class="reveal">
+        A holding company, software incubator, and <em>AI advisory</em>.
+      </h1>
+      <p class="hero-lead reveal">
+        Dune Ventures LLC operates a portfolio of early-stage software ventures, incubates new ones in-house, and advises leaders on integrating intelligence systems into existing infrastructure.
+      </p>
+    </div>
+    <svg class="hero-dune-illustration" viewBox="0 0 1440 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,180 Q360,80 720,140 T1440,100 L1440,240 L0,240 Z" fill="#E8DFD2" opacity="0.6"/>
+      <path d="M0,210 Q360,130 720,180 T1440,150 L1440,240 L0,240 Z" fill="#D4C6B3" opacity="0.5"/>
+    </svg>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="pillars" id="what-we-do">
+    <div class="container">
+      <div class="pillars-header reveal">
+        <span class="section-eyebrow">What We Do</span>
+        <h2 class="section-title">Three disciplines, one operating thesis.</h2>
+        <p class="section-lead">
+          We believe software compounds. So does intelligence. Our work concentrates on the overlap — building durable software businesses and helping other leaders build them too.
+        </p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card reveal">
+          <div class="pillar-number">01 — Holding</div>
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="5" y="14" width="26" height="17" stroke="currentColor" stroke-width="1.6" rx="2"/>
+              <path d="M11 14 V10 a2 2 0 0 1 2 -2 h10 a2 2 0 0 1 2 2 v4" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M5 22 h26" stroke="currentColor" stroke-width="1.6"/>
+            </svg>
+          </div>
+          <h3>Holding Company</h3>
+          <p>Our portfolio consists of early-stage software ventures across personal finance, hospitality commerce, and collector markets. We own the intellectual property, operate the platforms, and invest in long-term compounding rather than quick exits.</p>
+        </div>
+        <div class="pillar-card reveal">
+          <div class="pillar-number">02 — Incubation</div>
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 5 L18 11 M18 25 L18 31 M5 18 L11 18 M25 18 L31 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="18" cy="18" r="7" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="18" cy="18" r="2.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Software Incubator</h3>
+          <p>We build new software ventures in-house, applying AI-native development practices and systematic operational infrastructure from day one. Every new company inherits the compound intelligence of every prior build.</p>
+        </div>
+        <div class="pillar-card reveal">
+          <div class="pillar-number">03 — Advisory</div>
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="14" r="5" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="25" cy="14" r="5" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="18" cy="26" r="5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M14.5 17 L17 23 M21.5 17 L19 23 M15 14 L21 14" stroke="currentColor" stroke-width="1.6"/>
+            </svg>
+          </div>
+          <h3>AI Advisory</h3>
+          <p>We advise leaders on how to design and integrate new intelligence systems into their existing infrastructure — aligning modern AI capabilities with the operating models, processes, and teams already in place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="wordmark">
+            <span class="wordmark-mark">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 22 Q 8 14, 14 18 T 26 14" stroke="#C69749" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <path d="M2 26 Q 9 20, 15 22 T 26 20" stroke="#F5EFE6" stroke-width="2" stroke-linecap="round" fill="none"/>
+              </svg>
+            </span>
+            <span>Dune Ventures</span>
+          </div>
+        </div>
+        <div class="footer-meta">
+          Dune Ventures LLC · Nevada · Est. 2026
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Dune Ventures LLC. All rights reserved.</div>
+        <div>Registered in Nevada, United States.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav border on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 8);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
