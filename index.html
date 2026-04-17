@@ -93,12 +93,16 @@
       position: relative;
       overflow: hidden;
     }
-    .hero-dune-illustration {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      width: 100%; height: 240px;
+    .hero-emblem {
+      display: block;
+      margin: 72px auto 0;
+      max-width: 380px;
+      width: 100%;
+      height: auto;
       pointer-events: none;
-      opacity: 0.35;
+    }
+    @media (max-width: 720px) {
+      .hero-emblem { max-width: 280px; margin-top: 48px; }
     }
     .eyebrow {
       display: inline-block;
@@ -268,11 +272,8 @@
       <p class="hero-lead reveal">
         Dune Ventures LLC operates a portfolio of early-stage software ventures, incubates new ones in-house, and advises leaders on integrating intelligence systems into existing infrastructure.
       </p>
+      <img src="assets/emblem-web.png" alt="Dune Ventures emblem" class="hero-emblem reveal" />
     </div>
-    <svg class="hero-dune-illustration" viewBox="0 0 1440 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,180 Q360,80 720,140 T1440,100 L1440,240 L0,240 Z" fill="#E8DFD2" opacity="0.6"/>
-      <path d="M0,210 Q360,130 720,180 T1440,150 L1440,240 L0,240 Z" fill="#D4C6B3" opacity="0.5"/>
-    </svg>
   </section>
 
   <!-- WHAT WE DO -->
@@ -334,7 +335,7 @@
         <div class="footer-brand">
           <div class="wordmark">
             <span class="wordmark-mark">
-              <img src="assets/mark-web.png" alt="Dune Ventures" />
+              <img src="assets/mark-white-web.png" alt="Dune Ventures" />
             </span>
             <span>Dune Ventures</span>
           </div>
