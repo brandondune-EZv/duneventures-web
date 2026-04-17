@@ -52,18 +52,7 @@
       transition: border-color 0.3s;
     }
     nav.scrolled { border-bottom-color: var(--border); }
-    nav .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .nav-spacer { flex: 1; }
-    .nav-emblem-link {
-      flex: 0 0 auto;
-      display: inline-flex;
-      align-items: center;
-    }
-    .nav-emblem {
-      height: 60px;
-      width: auto;
-      display: block;
-    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
     .wordmark {
       display: flex;
       align-items: center;
@@ -87,8 +76,6 @@
     }
     footer .wordmark-mark { height: 30px; }
     .nav-meta {
-      flex: 1;
-      text-align: right;
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       letter-spacing: 0.14em;
@@ -98,7 +85,6 @@
     }
     @media (max-width: 720px) {
       .nav-meta { display: none; }
-      .nav-emblem { height: 48px; }
     }
 
     /* ============ HERO ============ */
@@ -266,9 +252,11 @@
   <!-- NAVIGATION -->
   <nav id="nav">
     <div class="container">
-      <div class="nav-spacer"></div>
-      <a href="#top" class="nav-emblem-link">
-        <img src="assets/emblem-web.png" alt="Dune Ventures" class="nav-emblem" />
+      <a href="#top" class="wordmark">
+        <span class="wordmark-mark">
+          <img src="assets/mark-white-web.png" alt="Dune Ventures" />
+        </span>
+        <span>Dune Ventures</span>
       </a>
       <div class="nav-meta">Las Vegas · Nevada</div>
     </div>
@@ -277,6 +265,7 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <div class="container">
+      <img src="assets/emblem-web.png" alt="Dune Ventures emblem" class="hero-emblem reveal" />
       <span class="eyebrow reveal">Est. 2026 · Nevada</span>
       <h1 class="reveal">
         A holding company, software incubator, and <em>AI advisory</em>.
