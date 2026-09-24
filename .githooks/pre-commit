@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# ─────────────────────────────────────────────────────────────────────────────
+# Sagery pre-commit hook — run tsc --noEmit before commit
+#
+# Why: April 2026 AQ-206 forensic sweep classified 5 of 5 production-deploy
+# ERRORs as tsc/lint regressions that would have been caught locally. This
+# hook blocks that class of failure at commit time instead of on Vercel.
+#
+# Activation: `npm install` runs the `prepare` script which sets
+#   git config core.hooksPath .githooks
+# so this hook is automatic on any machine that ran `npm install`. Fleet
+# agents, Cowork Desktop Commander, Claude Code, and Brandon's Mac all hit
+# the same hook.
+#
+# Bypass: `git commit --no-verify` for edge cases (mid-stash commits, rebase
+# conflict resolution, etc.). Use sparingly.
+#
+# Speed: `tsc --noEmit` uses the incremental-build cache (tsconfig has
+# `incremental: true` → .tsbuildinfo in root). First run slow (~20s), every
+# subsequent run under 5s on unchanged areas.
+#
+# Installed 2026-04-23 via AQ-206 Tier 2 recommendation.
+# ─────────────────────────────────────────────────────────────────────────────
+
+set -e
+
+# ─── Identifier scan (2026-09-24) ────────────────────────────────────────────
+# Two repos leaked the company's EIN the same way in the same week (a runbook
+# and a handoff file), one of them onto a public site. Every ADDED line in the
+# staged diff is scanned for EIN (NN-NNNNNNN) and SSN (NNN-NN-NNNN) shapes and
+# for the literal words EIN/SSN/D-U-N-S beside digits. Legal, personal and
+# financial identifiers live in brain-sync (private notes), never in a code
+# repo. Bypass only with `git commit --no-verify` after reading the hit.
+ADDED=$(git diff --cached -U0 --diff-filter=ACMR | grep -E '^\+' | grep -vE '^\+\+\+' || true)
+if [ -n "$ADDED" ]; then
+  HITS=$(printf '%s\n' "$ADDED" | grep -nE '\b[0-9]{2}-[0-9]{7}\b|\b[0-9]{3}-[0-9]{2}-[0-9]{4}\b|\b(EIN|SSN|D-U-N-S|DUNS)\b[^0-9\n]{0,20}[0-9]{2}' \
+    | grep -vE 'pre-commit|identifier scan' || true)
+  if [ -n "$HITS" ]; then
+    echo "❌ [pre-commit] Possible legal/personal identifier in staged changes:"
+    printf '%s\n' "$HITS" | cut -c1-160
+    echo "   Identifiers belong in brain-sync, not in this repo. Remove it, or --no-verify if this is a false positive."
+    exit 1
+  fi
+fi
+
+# Static site: no TypeScript gate here.
+exit 0
