@@ -1,6 +1,8 @@
 .DS_Store
-node_modules/
-.vercel
 .env
 .env.local
+.vercel
 *.log
+*.private
+DEPLOY.md
+node_modules/
